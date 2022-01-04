@@ -1,0 +1,33 @@
+<p>{{title}}</p>
+<button (click)="doSomething()">do something</button>
+<br />
+<button (click)="getAuthor()">get author</button>
+<br />
+<button (click)="getAuthorFromBack()">get author from back</button>
+<button (click)="getAuthorListFromBack()">get author list from back</button>
+<table>
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="author != undefined">
+        <tr >
+            <td>{{author.firstName}}</td>
+            <td>{{author.lastName}}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="authorList.length > 0">
+        <tr *ngFor="let author of authorList">
+            <td>{{author.firstName}}</td>
+            <td>{{author.lastName}}</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<br />
+<label>firstName</label><input type="text" ngModel="firstName"/>
+<label>lastName</label><input type="text" ngModel="lastName"/>
+<button (click)="createAuthor()">create</button>
+<router-outlet></router-outlet>
