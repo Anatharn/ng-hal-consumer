@@ -10,24 +10,35 @@
         <tr>
             <th>Firstname</th>
             <th>Lastname</th>
+            <th>action</th>
         </tr>
     </thead>
     <tbody *ngIf="author != undefined">
         <tr >
             <td>{{author.firstName}}</td>
             <td>{{author.lastName}}</td>
+            <td></td>
         </tr>
     </tbody>
     <tbody *ngIf="authorList.length > 0">
         <tr *ngFor="let author of authorList">
             <td>{{author.firstName}}</td>
             <td>{{author.lastName}}</td>
+            <td>
+                <button (click)="updateAuthor(author)">update author</button>
+                <button (click)="deleteAuthor(author)">delete author</button>
+            </td>
         </tr>
     </tbody>
 </table>
+<div *ngIf="page.totalPages > 0">
+    <button (click)="goToPrevious()">&lt;&lt;</button>
+    {{page.number +1}}/{{page.totalPages}}
+    <button (click)="goToNext()">&gt;&gt;</button>
+</div>
 <br />
 <br />
-<label>firstName</label><input type="text" ngModel="firstName"/>
-<label>lastName</label><input type="text" ngModel="lastName"/>
+<label>firstName</label><input type="text" [(ngModel)]="firstName"/>
+<label>lastName</label><input type="text" [(ngModel)]="lastName"/>
 <button (click)="createAuthor()">create</button>
 <router-outlet></router-outlet>

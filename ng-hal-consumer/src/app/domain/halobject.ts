@@ -1,6 +1,6 @@
-import { HALLink } from "./hallink";
+import { HALLinks } from "./hallinks";
 
 export class HALObject {
 
-    public self!: HALLink;
+    public _links!: HALLinks;
 }

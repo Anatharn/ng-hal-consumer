@@ -1,6 +1,6 @@
 import { HALLink } from "./hallink";
 
-export class Links {
+export class HALLinks {
 
     public self!: HALLink;
     public profile!: HALLink;

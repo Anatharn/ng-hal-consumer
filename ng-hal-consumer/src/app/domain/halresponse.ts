@@ -1,13 +1,13 @@
-import { Embedded } from "./embedded";
+import { HALEmbedded } from "./halembedded";
 import { HALObject } from "./halobject";
-import { Links } from "./links";
-import { Page } from "./page";
+import { HALLinks } from "./hallinks";
+import { HALPage } from "./halpage";
 
 export class HALResponse<T extends HALObject> {
 
-    public _embedded!: Embedded<T>;
-    public _links!: Links;
-    public page!: Page;
+    public _embedded!: HALEmbedded<T>;
+    public _links!: HALLinks;
+    public page!: HALPage;
 
     constructor() {
 
